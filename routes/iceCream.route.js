@@ -25,6 +25,7 @@ iceCreamRouter.get("/",async(req,res)=>{
 })
 
 iceCreamRouter.get("/:ID",async(req,res)=>{
+    const {ID}=req.params
     try{
         const iceCream=await iceCreamModel.findById({_id:ID})
         res.send(iceCream)
