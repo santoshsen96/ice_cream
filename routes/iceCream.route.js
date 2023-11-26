@@ -23,6 +23,20 @@ iceCreamRouter.get("/",async(req,res)=>{
         res.json({error:err.message})
     }
 })
+
+iceCreamRouter.patch("/update/:ID", async (req, res) => {
+    const { ID } = req.params;
+    console.log(ID)
+    try {
+        // Remove the unnecessary findOne operation
+        await iceCreamModel.findByIdAndUpdate({ _id: ID }, req.body);
+        res.json({ msg: `${ID} has been updated` });
+    } catch (err) {
+
+        res.json({ error: err.message });
+    }
+});
+
 module.exports={
     iceCreamRouter
 }
