@@ -24,6 +24,15 @@ iceCreamRouter.get("/",async(req,res)=>{
     }
 })
 
+iceCreamRouter.get("/:ID",async(req,res)=>{
+    try{
+        const iceCream=await iceCreamModel.findById({_id:ID})
+        res.send(iceCream)
+    }catch(err){
+        res.json({error:err.message})
+    }
+})
+
 iceCreamRouter.patch("/update/:ID", async (req, res) => {
     const { ID } = req.params;
     console.log(ID)
