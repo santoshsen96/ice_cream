@@ -23,13 +23,13 @@ iceCreamHistoryRouter.get("/", async (req, res) => {
     if (req.query.startDate) {
       const startDate = new Date(req.query.startDate);
 
-      query.createdAt = { $gte: startDate };
+      query.saleDate = { $gte: startDate };
     }
 
     if (req.query.endDate) {
       const endDate = new Date(req.query.endDate);
 
-      query.createdAt = { ...query.createdAt, $lte: endDate } || {
+      query.saleDate = { ...query.saleDate, $lte: endDate } || {
         $lte: endDate,
       };
     }
