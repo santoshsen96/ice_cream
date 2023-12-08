@@ -17,6 +17,9 @@ const productSchema = new mongoose.Schema({
         type: Date,
         default: Date.now,
       },
+      shopName:{
+        type:String
+      },
       itemsSold: [
         {
           productId: {
